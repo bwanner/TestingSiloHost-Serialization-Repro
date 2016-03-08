@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using ClassLibrary;
 using Grains1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Orleans.Serialization;
 using Orleans.TestingHost;
 
 namespace UnitTestProject1
@@ -10,6 +11,12 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1 : TestingSiloHost
     {
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext param)
+        {
+            SerializationManager.InitializeForTesting();
+        }
+
         [ClassCleanup]
         public static void ClassCleanup()
         {
