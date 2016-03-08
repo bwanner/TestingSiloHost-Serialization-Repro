@@ -10,6 +10,16 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1 : TestingSiloHost
     {
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            // Optional. 
+            // By default, the next test class which uses TestignSiloHost will
+            // cause a fresh Orleans silo environment to be created.
+            StopAllSilosIfRunning();
+        }
+
+
         [TestMethod]
         public async Task TestMethod1()
         {
