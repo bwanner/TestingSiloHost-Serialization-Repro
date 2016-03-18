@@ -14,7 +14,7 @@ namespace UnitTestProject1
         [ClassInitialize]
         public static void ClassInitialize(TestContext param)
         {
-            SerializationManager.InitializeForTesting();
+            SerializationManager.InitializeForTesting(null, true);
         }
 
         [ClassCleanup]
